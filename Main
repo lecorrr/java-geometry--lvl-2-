@@ -1,0 +1,52 @@
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		double a = Math.sqrt((4 * 4) + (4 * 4));
+		double b = Math.sqrt((2 * 2) + (3 * 3));
+		double c = Math.sqrt((6 * 6) + 1);
+		double p = (a + b + c) / 2;
+		double square = Math.sqrt(p*(p-a)*(p-b)*(p-c));
+		Scanner sc = new Scanner(System.in);
+		System.out.println("input point x and y");
+		double x = sc.nextDouble();
+		double y = sc.nextDouble();
+		double xy = gerona(x,y)+geronb(x,y)+geronc(x,y);
+		if (xy<=square) {
+			System.out.println("point is in triangle");
+		} else {
+			System.out.println("point is not in triangle");
+		}
+
+	}
+
+	public static double gerona(double x, double y) {
+		double a = Math.sqrt((4 * 4) + (4 * 4));
+		double b = Math.sqrt((x*x)+(y*y));
+		double c = Math.sqrt((4-x)*(4-x)+(4-y)*(4-y));
+		double p = (a + b + c) / 2;
+		double aa = Math.sqrt(p * (p - a) * (p - b) * (p - c));
+		return aa;
+	}
+
+	public static double geronb(double x, double y) {
+		double a = Math.sqrt((4-x)*(4-x)+(4-y)*(4-y));
+		double b = Math.sqrt((2 * 2) + (3 * 3));
+		double c = Math.sqrt((6-x)*(6-x)+(1-y)*(1-y));
+		double p = (a + b + c) / 2;
+		double bb = Math.sqrt(p * (p - a) * (p - b) * (p - c));
+		return bb;
+	}
+
+
+	public static double geronc(double x, double y) {
+		double a = Math.sqrt((6-x)*(6-x)+(1-y)*(1-y));
+		double b = Math.sqrt((x*x)+(y*y));
+		double c = Math.sqrt((6 * 6) + 1);
+		double p = (a + b + c) / 2;
+		double cc = Math.sqrt(p * (p - a) * (p - b) * (p - c));
+		return cc;
+
+	}
+}
